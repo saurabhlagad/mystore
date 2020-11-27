@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     
+        <div *ngIf="bookedcars.length==0" ><h3 class="title">you didn't Book any Car till now </h3></div>
+        <div *ngIf="bookedcars.length!=0">
+            <h3 class="title" >Booked Cars</h3>
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Thumbnail</th>
+                        <th>car details</th>
+                        <th>From Date</th>
+                        <th>From Time</th>
+                        <th>To Date</th>
+                        <th>To Time</th>
+                        <th>Date & Time </th>
+                        <th>status</th>
+                        <!-- <th>Actions</th> -->
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <tr *ngFor="let bookedcar of bookedcars;let i=index">
+                        <td>{{i+1}}</td>
+                        <td> <img src="http://localhost:4100/bookedcar/image/{{bookedcar.image}}" alt="" width="150px" height="150px"> </td>
+                        <td>
+                            <strong>Car Name: </strong> {{bookedcar.carName}}<br>
+                            <strong>Plate No: </strong>{{bookedcar.plateNo}}<br>
+                            <strong>price/hour: </strong>₹{{bookedcar.pricePerHour}}
+                        </td>
+                        <td>{{bookedcar.fromDate}}</td>
+                        <td>{{bookedcar.fromTime}}</td>
+                        <td>{{bookedcar.toDate}}</td>
+                        <td>{{bookedcar.toTime}}</td>
+                        <td>{{bookedcar.created_on}}</td>
+                        <td *ngIf="bookedcar.isReturned==3"> <h4 style="color: red;"> Request Denied </h4></td>
+                        <td *ngIf="bookedcar.isReturned==1"> <h4 style="color: green;"> Returned </h4></td>
+                        <td *ngIf="bookedcar.isReturned==0"> <h4 style="color: orange;"> Car in Use</h4></td>
+                        <td *ngIf="bookedcar.isReturned==2"> <h4 style="color: rgb(209, 209, 10);">Please wait till admin confirmation</h4> <br>
+                            <strong style="margin-left: 10;">OR</strong> <br>
+                            <button (click)="onCancel(bookedcar)" class="btn btn-danger" style="margin-left: 20px;">  Cancel Booking </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <button (click)="continueBooking()" class="btn btn-primary">Continue Booking</button>
+    
+</body>
+</html>

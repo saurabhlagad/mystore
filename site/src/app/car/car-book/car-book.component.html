@@ -1,0 +1,79 @@
+<div class="modal-header">
+    <h3 class="title">Book car</h3>
+</div>
+
+<div class="modal-body">
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3>{{carName}}</h3>
+                <img src="http://localhost:4100/car/image/{{image}}" alt="">
+        </div>
+        <div class="col-md-6">
+            <h5>No Of seats: <small> {{noOfSeats}} </small></h5>
+            <h5>Price/Hour: <small> {{pricePerHour}} </small></h5>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h5>Transmission: <small>{{transmission}}</small></h5>
+                </div>
+                <div class="col-sm-6">
+                    <h5>Fuel: <small>{{fuel}}</small></h5>
+                </div>
+            </div>
+            <h5>Description:</h5>
+            <p>{{description}}</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="">From date</label>
+                <input [(ngModel)]="fromDate" type="date" class="form-control">
+            </div>          
+        </div>
+        
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="">From Time</label>
+                <input [(ngModel)]="fromTime" type="time" class="form-control">
+            </div>          
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="">To date</label>
+                <input [(ngModel)]="toDate" type="date" class="form-control">
+            </div>          
+        </div>
+        
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="">To Time</label>
+                <input [(ngModel)]="toTime" type="time" class="form-control">
+            </div>          
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="">Destination</label><br>
+        <input [(ngModel)]="destination" type="text" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="">driving Licence(image)</label><br>
+        <input (change)="onImageSelected($event)" accept="image/*" type="file" class="form-control">
+      </div>
+      
+    </div>
+    
+    
+</div>
+
+<div class="modal-footer">
+    <button (click)="onBook()" class="btn btn-primary" style="margin-right:30px;">Book Now</button>
+    <button (click)="onCancel()" class="btn btn-danger" style="float: right;">Cancel</button>
+</div>
+

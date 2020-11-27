@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 class="title" style="padding-top: 20px;">Signup</h2>
+<div class="row" style="padding-top: 100px;">
+    <div class="col-md-2">
+
+
+    </div>
+    <div class="col-md-8">
+        <div class="shadow p-3 mb-5 bg-white rounded">
+        <div class="form">
+            <div class="row">
+                
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Firstname:</label>
+                        <input [(ngModel)]="firstname" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Lastname:</label>
+                        <input [(ngModel)]="lastname" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">email:</label>
+                        <input [(ngModel)]="email" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Phone NO::</label>
+                        <input [(ngModel)]="phoneNo" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">password:</label>
+                        <input [(ngModel)]="password" type="password" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Confirm Password:</label>
+                        <input [(ngModel)]="confirmPassword" type="password" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- <div class="form">
+                <div class="form-group">
+                    <label for="">email:</label>
+                    <input [(ngModel)]="email" type="text" class="form-control">
+                    <label for="">password:</label>
+                    <input [(ngModel)]="password" type="password" class="form-control">
+                </div>
+            </div> -->
+            <button class="btn btn-primary" (click)="onSignup()">Signup</button>
+            <button (click)="onSignin()" class="btn btn-primary" style="float: right;">Signin</button>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+
+    </div>
+    
+</div>
+</body>
+</html>

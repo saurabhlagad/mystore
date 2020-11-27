@@ -1,0 +1,67 @@
+<h3 class="title">Filter</h3>
+<div class="row">
+  <!-- <div class="col-md-4">
+    <div class="form-group">
+      <label for="">Search</label>
+            
+
+      <input class="form-control " (change)="loadCars()" [(ngModel)]="searchText" type="search" placeholder="Press Enter after search text" aria-label="Search">
+      
+    </div>
+  </div> -->
+  <div class="col-md-6">
+      <div class="form-group">
+          <label for="">price/hour(Maximum)</label>
+          <select (change)="loadCars()" [(ngModel)]="pricePerHour" class="form-control">
+              <option value="0">All</option>
+              <option value="80">80</option>
+            <option value="100">100</option>
+              <option value="130">130</option>
+              <option value="160">160</option>
+              <option value="200">200</option>
+          </select>
+      </div>          
+  </div>
+  <div class="col-md-6">
+      <div class="form-group">
+          <label for="">no of seats(Maximum)</label>
+          <select (change)="loadCars()" [(ngModel)]="noOfSeats" class="form-control">
+              <option value="0">All</option>
+            <option value="4">4</option>
+              <option value="6">6</option>
+              <option value="10">10</option>
+          </select>
+      </div>          
+  </div>
+</div>
+
+
+<div *ngIf="cars.length==0" class="row">
+    <h2 class="title">There are no cars matching this criteria</h2>
+</div>
+
+<h3 *ngIf="cars.length!=0" class="title">Cars</h3>
+<div *ngIf="cars.length!=0" class="row">
+    <div *ngFor="let car of cars" class="card mb-3" style="max-width: 540px;margin: 15px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="http://localhost:4100/car/image/{{car.image}}" class="card-img" alt="...">
+            <h5 *ngIf="car.isAvailable==0" class="card-text" style="color: rgba(248, 28, 28, 0.89);">Currently not available</h5>
+            <h5 *ngIf="car.isAvailable==1" class="card-text" style="color: rgb(34, 165, 8);">Now available</h5>
+            <h5 *ngIf="car.isAvailable==2" class="card-text" style="color: rgb(241, 148, 9);">In users waiting list</h5>
+            <button *ngIf="car.isAvailable==1" (click)="onBook(car)" class="btn btn-primary" style="margin-left: 10px;">Book Now</button>
+
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <strong> <h5 class="card-title">{{car.carName}}</h5></strong>
+              <p class="card-text">{{car.description}}</p>
+              <p class="card-text"> <strong> no of maximum Seats</strong>:{{car.noOfSeats}}</p>
+              <p class="card-text"> <strong>Price/hour:</strong>₹ {{car.pricePerHour}}</p>
+              <p class="card-text"><strong>transmission:</strong>{{car.transmission}} <strong>fuel:</strong>{{car.fuel}}</p>
+                          
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
