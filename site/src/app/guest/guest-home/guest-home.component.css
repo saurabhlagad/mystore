@@ -502,7 +502,7 @@
       
       .banner-item-03 {
           padding: 300px 0px;
-          background-image: url(../../../assets/images/i9.jpg);
+          /* background-image: url(../../../assets/images/i9.jpg); */
           background-size: cover;
           background-repeat: no-repeat;
           background-position: center center;
