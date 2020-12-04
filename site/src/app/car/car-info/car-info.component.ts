@@ -1,33 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { NgModel } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { BookedCarComponent } from '../booked-car/booked-car.component';
 import { CarBookComponent } from '../car-book/car-book.component';
 import { CarService } from '../car.service';
 
-@Component({
-  selector: 'app-car-list',
-  templateUrl: './car-list.component.html',
-  styleUrls: ['./car-list.component.css']
-})
-export class CarListComponent implements OnInit {
 
-  constructor(private toastr:ToastrService,private service:CarService,private router:Router,private modal:NgbModal) { }
+@Component({
+  selector: 'app-car-info',
+  templateUrl: './car-info.component.html',
+  styleUrls: ['./car-info.component.css']
+})
+export class CarInfoComponent implements OnInit {
+  currentRate = 6;
+  rate=0
+  constructor(private activatedRoute:ActivatedRoute,private modal:NgbModal,private toastr:ToastrService,private service:CarService) { }
   cars=[]
-  searchText=''
-  pricePerHour=0
-  noOfSeats=0
-  ngOnInit(): void {
-    this.loadCars()
+  car={
+    carName:'',
+    description:'',
+    noOfSeats:0,
+    pricePerHour:0,
+    transmission:'',
+    fuel:'',
+    isAvailable:0,
+    image:undefined
   }
-  loadCars(){
-    this.service.getCars(this.pricePerHour,this.noOfSeats)
+  ngOnInit(): void {
+    const id=this.activatedRoute.snapshot.queryParams['id']
+    this.service.carInfo(id)
                 .subscribe(response=>{
                   if(response['status']=='success')
                   {
                     this.cars=response['data']
+                    this.car=this.cars[0]
                   }
                   else{
                     this.toastr.error(response['error'])
@@ -35,6 +41,22 @@ export class CarListComponent implements OnInit {
                 })
   }
 
+  loadCar(car){
+    this.service.carInfo(car['id'])
+                .subscribe(response=>{
+                  if(response['status']=='success')
+                  {
+                    this.cars=response['data']
+                    this.car=this.cars[0]
+
+                  }
+                  // else{
+                  //   this.toastr.error(response['error'])
+                  // }
+                })
+  }
+
+  
   onBook(car){
     if(sessionStorage['token'])
     {
@@ -52,7 +74,7 @@ export class CarListComponent implements OnInit {
     component.image=car.image
     component.isAvailable=car.isAvailable
     modalRef.result.finally(()=>{
-      this.loadCars()
+      this.loadCar(car['id'])
     })
     }
     else{
@@ -62,7 +84,4 @@ export class CarListComponent implements OnInit {
   }
 
 
-  carDetails(car){
-    this.router.navigate(['/home/car/car-info'],{queryParams:{id:car.id}})
-  }
 }

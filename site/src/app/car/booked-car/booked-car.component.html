@@ -9,6 +9,8 @@
      
         <div *ngIf="bookedcars.length==0" ><h3 class="title">you didn't Book any Car till now </h3></div>
         <div *ngIf="bookedcars.length!=0">
+            <button (click)="continueBooking()" class="btn btn-primary" style="margin-top:20px">Continue Booking</button>
+
             <h3 class="title" >Booked Cars</h3>
             <table class="table table-striped table-hover table-bordered">
                 <thead>
@@ -52,7 +54,6 @@
             </table>
         </div>
 
-        <button (click)="continueBooking()" class="btn btn-primary">Continue Booking</button>
     
 </body>
 </html>

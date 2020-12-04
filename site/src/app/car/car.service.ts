@@ -25,6 +25,15 @@ export class CarService {
    return this.http.post(this.url+'/filter',body)
   }
 
+  carInfo(id:number){
+    const httpOptions={
+      headers:new HttpHeaders({
+        token:sessionStorage['token']
+      })
+    }
+
+    return this.http.get('http://localhost:4100/car/car-info/'+id,httpOptions)
+  }
 
 
 

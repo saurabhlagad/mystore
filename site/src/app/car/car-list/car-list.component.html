@@ -42,10 +42,10 @@
 
 <h3 *ngIf="cars.length!=0" class="title">Cars</h3>
 <div *ngIf="cars.length!=0" class="row">
-    <div *ngFor="let car of cars" class="card mb-3" style="max-width: 540px;margin: 15px;">
-        <div class="row no-gutters">
+    <div *ngFor="let car of cars" class="card mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 540px;margin: 15px;">
+        <div (click)="carDetails(car)" class="row no-gutters">
           <div class="col-md-4">
-            <img src="http://localhost:4100/car/image/{{car.image}}" class="card-img" alt="...">
+            <img  src="http://localhost:4100/car/image/{{car.image}}" class="card-img" alt="...">
             <h5 *ngIf="car.isAvailable==0" class="card-text" style="color: rgba(248, 28, 28, 0.89);">Currently not available</h5>
             <h5 *ngIf="car.isAvailable==1" class="card-text" style="color: rgb(34, 165, 8);">Now available</h5>
             <h5 *ngIf="car.isAvailable==2" class="card-text" style="color: rgb(241, 148, 9);">In users waiting list</h5>

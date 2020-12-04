@@ -7,11 +7,10 @@ const routes: Routes = [
   {path:'home',component:HomeComponent,
    children:[
      {path:'user',loadChildren:()=>import('./user/user-routing.module').then(m=>m.UserRoutingModule)},
-     //{path:'order',loadChildren:()=>import('./order/order-routing.module').then(m=>m.OrderRoutingModule)},
-     //{path:'product',loadChildren:()=>import('./product/product-routing.module').then(m=>m.ProductRoutingModule)},
-     {path:'car',loadChildren:()=>import('./car/car-routing.module').then(m=>m.CarRoutingModule)}
+     {path:'car',loadChildren:()=>import('./car/car-routing.module').then(m=>m.CarRoutingModule)},
+     {path:'guest',loadChildren:()=>import('./guest/guest-routing.module').then(m=>m.GuestRoutingModule)}
    ]},
-  {path:'',redirectTo:'/home',pathMatch:'full'},
+  {path:'',redirectTo:'/home/guest/home',pathMatch:'full'},
   
   
 ];
@@ -21,3 +20,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

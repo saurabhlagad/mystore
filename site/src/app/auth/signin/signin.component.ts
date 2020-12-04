@@ -39,7 +39,7 @@ export class SigninComponent implements OnInit {
                       
                       sessionStorage['name']=user['firstname']+' '+user['lastname']
                       this.toastr.success('Welcome to Click&Go ' + sessionStorage['name'])
-                      this.router.navigate(['/home'])
+                      this.router.navigate(['/home/guest/home'])
                       console.log(sessionStorage['token'])
                     }
                     else{
