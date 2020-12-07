@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { BookedcarService } from '../bookedcar.service';
+import { CarFeedbackComponent } from '../car-feedback/car-feedback.component';
 
 
 @Component({
@@ -48,7 +49,15 @@ export class BookedCarComponent implements OnInit {
                   }
                 })
   }
-
+onFeedback(car){
+    const modalRef=this.modal.open(CarFeedbackComponent,{size:'lg'})
+    const component=modalRef.componentInstance as CarFeedbackComponent
+    component.ID=car.carId
+    component.carName=car.carName
+    modalRef.result.finally(()=>{
+      this.loadBookedCars()
+    })
+}
 
 
 }

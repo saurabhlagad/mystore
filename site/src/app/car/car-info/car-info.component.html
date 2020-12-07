@@ -1,4 +1,4 @@
-<h3 class="title">Car Information</h3>
+<h3 class="title" style="margin-top: 100px;">Car Information</h3>
 <div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -6,6 +6,7 @@
           <li class="breadcrumb-item active" aria-current="page">{{car.carName}}</li>
         </ol>
       </nav>
+
     <div class="row">
         <div class="col-md-6">
             <img src="http://localhost:4100/car/image/{{car.image}}" height="300px" width="500px" alt="">
@@ -20,22 +21,24 @@
               <h5 *ngIf="car.isAvailable==0" class="card-text" style="color: rgba(248, 28, 28, 0.89);">Currently not available</h5>
               <h5 *ngIf="car.isAvailable==1" class="card-text" style="color: rgb(34, 165, 8);">Now available</h5>
               <h5 *ngIf="car.isAvailable==2" class="card-text" style="color: rgb(241, 148, 9);">In users waiting list</h5>
-              <button *ngIf="car.isAvailable==1" (click)="onBook(car)" class="btn btn-primary" style="margin-left: 10px;">Book Now</button>
+              <button *ngIf="car.isAvailable==1" (click)="onBook(car)" class="btn btn-primary mt-2" style="margin-left: 10px;">Book Now</button>
   
         </div>
     </div>
-    <div class="row">
-        <div class="shadow p-3 mb-5 bg-white rounded">
-            <!-- <h4>Abhishek Thombare</h4> -->
-            <!-- <ngb-rating [(rate)]="currentRate">
-                <ng-template let-fill="fill" let-index="index">
-                  <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
-                </ng-template>
-              </ngb-rating>
-              <hr> -->
-              <!-- <pre>Rate: <b>{{currentRate}}</b></pre> -->
-              <!-- <app-car-rating></app-car-rating> -->
+    <h2 class="mt-2">Customer's reviews</h2>
+    <div class="row mt-5">
+       
+          <div class="col-md-4" *ngFor="let feedback of feedbacks">
+            <div class="shadow p-3 mb-5 bg-white rounded">
+              <div class="service-item">
+                
+                <div class="down-content">
+                  <h4>{{feedback.userFirstname}} {{feedback.userLastname}}</h4>
+                  <ngb-rating [rate]="feedback.rating" readonly="true" [max]="5" style="color: gold; font-size: 20px;"></ngb-rating>
+                  <p class="n-m"><em>{{feedback.content}}</em></p>
+                </div>
+              </div>
         </div>
-    </div>
+    <!-- </div> -->
 </div>
 

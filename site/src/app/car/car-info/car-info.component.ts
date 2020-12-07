@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { CarBookComponent } from '../car-book/car-book.component';
 import { CarService } from '../car.service';
+import { FeedbackService } from '../feedback.service';
 
 
 @Component({
@@ -14,7 +15,8 @@ import { CarService } from '../car.service';
 export class CarInfoComponent implements OnInit {
   currentRate = 6;
   rate=0
-  constructor(private activatedRoute:ActivatedRoute,private modal:NgbModal,private toastr:ToastrService,private service:CarService) { }
+  feedbacks=[]
+  constructor(private activatedRoute:ActivatedRoute,private modal:NgbModal,private toastr:ToastrService,private service:CarService, private feedbackservice:FeedbackService) { }
   cars=[]
   car={
     carName:'',
@@ -39,6 +41,18 @@ export class CarInfoComponent implements OnInit {
                     this.toastr.error(response['error'])
                   }
                 })
+                this.feedbackservice.getFeedback(id)
+                .subscribe(response=>{
+                  if(response['status']=='success')
+                  {
+                    this.feedbacks=response['data']
+                    // this.car=this.cars[0]
+            
+                  }
+                  else{
+                    this.toastr.error(response['error'])
+                  }
+                })
   }
 
   loadCar(car){
@@ -54,6 +68,9 @@ export class CarInfoComponent implements OnInit {
                   //   this.toastr.error(response['error'])
                   // }
                 })
+  }
+  loadFeedback(){
+   
   }
 
   
@@ -83,5 +100,8 @@ export class CarInfoComponent implements OnInit {
     
   }
 
+  onSubmit(){
+    console.log(`rating=`+this.currentRate)
+  }
 
 }
