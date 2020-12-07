@@ -1,1 +1,51 @@
-<p>profile works!</p>
+
+<!-- <link href="/netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+
+<!------ Include the above in your HEAD tag ---------->
+<!-- 
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6" *ngFor
+        ="let user of users">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h4>
+                            {{user.firstname}}  {{user.lastname}}</h4>
+                        
+                      
+                    </div>
+                    <small><cite title="">{{user.Address}} <i class="glyphicon glyphicon-map-marker">
+                    </i></cite></small>
+                    <p>
+                        <i class="glyphicon glyphicon-envelope"></i>{{user.email}}
+                        <br />
+                      
+                        
+                        <i class="glyphicon glyphicon-phone"></i>{{user.phone}}</p>
+                    < Split button -->
+                <!-- </div>
+                <button class="btn btn-info" (click)="onEdit(user)">Edit</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="card mb-3 " *ngFor
+="let user of users">
+    <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+    <div class="card-body">
+        <h3 class="card-title">
+            {{user.firstname}}  {{user.lastname}}</h3>   
+      <p class="card-text">{{user.Address}}</p>
+      <p class="card-text">{{user.email}}</p>
+      <p class="card-text">{{user.phone}}</p>
+      <button class="btn btn-info" (click)="onEdit(user)">Edit</button>
+    </div>
+  </div>
+  
+<script src="/netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="/code.jquery.com/jquery-1.11.1.min.js"></script> 

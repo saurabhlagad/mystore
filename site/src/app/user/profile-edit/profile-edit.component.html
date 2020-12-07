@@ -1,0 +1,32 @@
+<div class="modal-header">
+    <h3 class="title">Edit Profile</h3>
+</div>
+
+<div class="modal-body">
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="">Phone Number</label>
+            <input [(ngModel)]="phone" type="text" class="form-control">
+        </div>          
+    </div>
+    
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="">Address</label><br>
+            <!-- <input [(ngModel)]="Address" type="text" class="form-control"> -->
+            <textarea  [(ngModel)]="Address" name="" id="" cols="30" rows="5"></textarea>
+        </div>          
+    </div>
+
+
+  <div class="col-md-6">
+    <label for="">Profile image</label><br>
+    <input (change)="onImageSelected($event)" accept="image/*" type="file" class="form-control">
+  </div>
+  </div>
+</div>
+  <div class="modal-footer">
+    <button (click)="onEdit()" class="btn btn-primary" style="margin-right:30px;">Save</button>
+    <button (click)="onCancel()" class="btn btn-danger" style="float: right;">Cancel</button>
+</div>
