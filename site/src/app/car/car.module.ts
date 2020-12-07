@@ -15,7 +15,8 @@ import { CarInfoComponent } from './car-info/car-info.component';
   imports: [
     CommonModule,
     CarRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ]
 })
 export class CarModule { }

@@ -13,7 +13,7 @@ import { CarService } from '../car.service';
 })
 export class CarInfoComponent implements OnInit {
   currentRate = 6;
-  rate=0
+  rating=0
   constructor(private activatedRoute:ActivatedRoute,private modal:NgbModal,private toastr:ToastrService,private service:CarService) { }
   cars=[]
   car={
@@ -83,5 +83,8 @@ export class CarInfoComponent implements OnInit {
     
   }
 
+  onSubmit(){
+    console.log(`rating=`+this.currentRate)
+  }
 
 }

@@ -1,4 +1,4 @@
-<h3 class="title">Car Information</h3>
+<h3 class="title" style="margin-top: 100px;">Car Information</h3>
 <div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -6,6 +6,7 @@
           <li class="breadcrumb-item active" aria-current="page">{{car.carName}}</li>
         </ol>
       </nav>
+
     <div class="row">
         <div class="col-md-6">
             <img src="http://localhost:4100/car/image/{{car.image}}" height="300px" width="500px" alt="">
@@ -25,7 +26,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="shadow p-3 mb-5 bg-white rounded">
+        <!-- <div class="shadow p-3 mb-5 bg-white rounded"> -->
             <!-- <h4>Abhishek Thombare</h4> -->
             <!-- <ngb-rating [(rate)]="currentRate">
                 <ng-template let-fill="fill" let-index="index">
@@ -35,7 +36,16 @@
               <hr> -->
               <!-- <pre>Rate: <b>{{currentRate}}</b></pre> -->
               <!-- <app-car-rating></app-car-rating> -->
+              <div class="form-group">
+                <!-- <ngb-rating (hover)="rating=$event" [max]="5"></ngb-rating> -->
+                <!-- <ngb-rating [(rate)]="currentRate">
+                  <ng-template let-fill="fill" let-index="index">
+                    <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
+                  </ng-template>
+                </ngb-rating>
+              </div>
+              <button class="btn btn-info" (click)="onSubmit()">submit</button> -->
         </div>
-    </div>
+    <!-- </div> -->
 </div>
 
