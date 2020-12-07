@@ -29,6 +29,7 @@
                     
                 </thead>
                 <tbody>
+                     <!-- same as foreach loop in php -->
                     <tr *ngFor="let bookedcar of bookedcars;let i=index">
                         <td>{{i+1}}</td>
                         <td> <img src="http://localhost:4100/bookedcar/image/{{bookedcar.image}}" alt="" width="150px" height="150px"> </td>
@@ -43,11 +44,15 @@
                         <td>{{bookedcar.toTime}}</td>
                         <td>{{bookedcar.created_on}}</td>
                         <td *ngIf="bookedcar.isReturned==3"> <h4 style="color: red;"> Request Denied </h4></td>
-                        <td *ngIf="bookedcar.isReturned==1"> <h4 style="color: green;"> Returned </h4></td>
+                        <td *ngIf="bookedcar.isReturned==1"> <h4 style="color: green;"> Returned </h4>
+                            <button (click)="onFeedback(bookedcar)"  class="btn btn-info mt-3" style="margin-left: 5px;">Feedback</button>
+                        </td>
                         <td *ngIf="bookedcar.isReturned==0"> <h4 style="color: orange;"> Car in Use</h4></td>
                         <td *ngIf="bookedcar.isReturned==2"> <h4 style="color: rgb(209, 209, 10);">Please wait till admin confirmation</h4> <br>
                             <strong style="margin-left: 10;">OR</strong> <br>
                             <button (click)="onCancel(bookedcar)" class="btn btn-danger" style="margin-left: 20px;">  Cancel Booking </button>
+                           
+
                         </td>
                     </tr>
                 </tbody>
