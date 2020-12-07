@@ -100,5 +100,8 @@ export class CarInfoComponent implements OnInit {
     
   }
 
+  onSubmit(){
+    console.log(`rating=`+this.currentRate)
+  }
 
 }
