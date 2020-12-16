@@ -31,14 +31,27 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="">From date</label>
-                <input [(ngModel)]="fromDate" type="date" class="form-control">
+                <input [(ngModel)]="fromDate" type="date" min="{{minFromDate}}" max="{{maxFromDate}}" class="form-control">
             </div>          
         </div>
         
+
         <div class="col-md-6">
             <div class="form-group">
                 <label for="">From Time</label>
-                <input [(ngModel)]="fromTime" type="time" class="form-control">
+                <!-- <input [(ngModel)]="fromTime" type="time" min="{{minFromDate}}" class="form-control"> -->
+                <div class="form-group">
+                    <ngb-timepicker  [formControl]="ctrl" required></ngb-timepicker>
+                    <div *ngIf="ctrl.valid" class="small form-text text-success">Great choice</div>
+                    <div *ngIf="ctrl.errors" class="small form-text text-danger">
+                      <div *ngIf="ctrl.errors['required']">Select time after 10 minutes from now</div>
+                      <div *ngIf="ctrl.errors['tooLate']">Oh no, it's way too late</div>
+                      <div *ngIf="ctrl.errors['tooEarly']">choose the time after 10 minutes from now</div>
+                    </div>
+                  </div>
+                  
+                  <hr>
+                  <!-- <pre>Selected time: {{ctrl.value | json}}</pre> -->
             </div>          
         </div>
     </div>
@@ -46,23 +59,34 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="">To date</label>
-                <input [(ngModel)]="toDate" type="date" class="form-control">
+                <input [(ngModel)]="toDate" type="date" min="{{minToDate}}" class="form-control">
             </div>          
         </div>
         
         <div class="col-md-6">
             <div class="form-group">
-                <label for="">To Time</label>
-                <input [(ngModel)]="toTime" type="time" class="form-control">
-            </div>          
+                <ngb-timepicker [formControl]="ctrl1" required></ngb-timepicker>
+                <div *ngIf="ctrl1.valid" class="small form-text text-success">Great choice</div>
+                <div *ngIf="ctrl1.errors" class="small form-text text-danger">
+                  <div *ngIf="ctrl1.errors['required']">Select time atleast 3 hours from from time</div>
+                  <div *ngIf="ctrl1.errors['tooLate']">Oh no, it's way too late</div>
+                  <div *ngIf="ctrl1.errors['tooEarly']">choose the time after atleast 3 hours from fromtime</div>
+                </div>
+              </div>
+              
+              <hr>          
         </div>
     </div>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4">
+        <label for="">Starting Point</label><br>
+        <input [(ngModel)]="startingPoint" type="text" class="form-control">
+      </div>
+      <div class="col-md-4">
         <label for="">Destination</label><br>
         <input [(ngModel)]="destination" type="text" class="form-control">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <label for="">driving Licence(image)</label><br>
         <input (change)="onImageSelected($event)" accept="image/*" type="file" class="form-control">
       </div>

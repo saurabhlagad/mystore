@@ -44,10 +44,11 @@
                         <td>{{bookedcar.toDate}}</td>
                         <td>{{bookedcar.toTime}}</td>
                         <td>{{bookedcar.created_on}}</td>
-                        <td>{{bookedcar.destination}}</td>
+                        <td> <strong> destination:</strong> {{bookedcar.destination}} <br> <strong> pickpoint:</strong> {{bookedcar.pickPoint}} </td>
                         <td *ngIf="bookedcar.isReturned==3"> <h4 style="color: red;"> Request Denied </h4></td>
                         <td *ngIf="bookedcar.isReturned==1"> <h4 style="color: green;"> Returned </h4>
                             <button (click)="onFeedback(bookedcar)"  class="btn btn-info mt-3" style="margin-left: 5px;">Feedback</button>
+                            <button (click)="carRent(bookedcar)"  class="btn btn-success mt-3" style="margin-left: 5px;">Rent</button>
                         </td>
                         <td *ngIf="bookedcar.isReturned==0"> <h4 style="color: orange;"> Car in Use</h4></td>
                         <td *ngIf="bookedcar.isReturned==2"> <h4 style="color: rgb(209, 209, 10);">Please wait till admin confirmation</h4> <br>

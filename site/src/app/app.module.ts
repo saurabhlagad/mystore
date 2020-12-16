@@ -12,12 +12,15 @@ import { AuthModule } from './auth/auth.module';
 //import { OrderModule } from './order/order.module';
 //import { ProductModule } from './product/product.module';
 import { UserModule } from './user/user.module';
-import { CarModule } from './car/car.module'
+import { CarModule } from './car/car.module';
+import { GuestModule } from './guest/guest.module';
+//import { GenerateBillComponent } from './bookedcar/generate-bill/generate-bill.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent
+    //GenerateBillComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { CarModule } from './car/car.module'
     //OrderModule,
     //ProductModule,
     UserModule,
-    CarModule
+    CarModule,
+    GuestModule
 
   ],
   providers: [],

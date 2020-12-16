@@ -17,7 +17,9 @@ export class HomeComponent implements OnInit {
 
   onLogout(){
     sessionStorage.removeItem('token')
-    sessionStorage.removeItem('user_name')
+    sessionStorage.removeItem('name')
+    sessionStorage.removeItem('email')
+    sessionStorage.removeItem('drivingLisence')
     this.router.navigate(['/signin'])
     console.log('in onLogout function')
   }

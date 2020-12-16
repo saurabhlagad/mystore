@@ -5,7 +5,7 @@ import { GuestHomeComponent } from './guest-home/guest-home.component';
 
 const routes: Routes = [
   {path:'home',component:GuestHomeComponent},
-  {path:'',redirectTo:'home'},
+  //{path:'',redirectTo:'home'},
   {path:'aboutus',component:GuestAboutusComponent}
 ];
 

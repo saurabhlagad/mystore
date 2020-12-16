@@ -38,9 +38,11 @@ export class SigninComponent implements OnInit {
                       console.log('*********');
                       
                       sessionStorage['name']=user['firstname']+' '+user['lastname']
+                      sessionStorage['email']=user['email']+''
+                      sessionStorage['drivingLisence']=user['drivingLisence']
                       this.toastr.success('Welcome to Click&Go ' + sessionStorage['name'])
                       this.router.navigate(['/home/guest/home'])
-                      console.log(sessionStorage['token'])
+                      console.log(`email=${sessionStorage['email']}`)
                     }
                     else{
                       this.toastr.error(response['error']+'')

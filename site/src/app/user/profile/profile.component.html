@@ -36,7 +36,9 @@
 
 <div class="card mb-3 mt-5 " *ngFor
 ="let user of users">
-    <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+    <img *ngIf="user.image!=undefined" src="http://localhost:4100/user/image/{{user.image}}" alt="http://placehold.it/380x500" class="img-rounded img-responsive" />
+    <img *ngIf="user.image==undefined" src="http://placehold.it/380x500" alt="http://placehold.it/380x500" class="img-rounded img-responsive" />
+    
     <div class="card-body ml-3">
         <h3 class="card-title">
             {{user.firstname}}  {{user.lastname}}</h3>   
@@ -47,5 +49,6 @@
     </div>
   </div>
   
+
 <script src="/netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="/code.jquery.com/jquery-1.11.1.min.js"></script> 

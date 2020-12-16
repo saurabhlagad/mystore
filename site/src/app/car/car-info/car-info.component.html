@@ -31,11 +31,14 @@
           <div class="col-md-4" *ngFor="let feedback of feedbacks">
             <div class="shadow p-3 mb-5 bg-white rounded">
               <div class="service-item">
-                
+                <img class="profileimg" *ngIf="feedback.userImage!=undefined" src="http://localhost:4100/user/image/{{feedback.userImage}}" width="150px" height="150px" alt="" class="img-rounded img-responsive" />
+                <img class="profileimg" *ngIf="feedback.userImage==undefined" src="http://placehold.it/380x500" width="150px" height="150px" alt="" class="img-rounded img-responsive" />
+
                 <div class="down-content">
                   <h4>{{feedback.userFirstname}} {{feedback.userLastname}}</h4>
                   <ngb-rating [rate]="feedback.rating" readonly="true" [max]="5" style="color: gold; font-size: 20px;"></ngb-rating>
                   <p class="n-m"><em>{{feedback.content}}</em></p>
+                  <small>{{feedback.created_on}} </small>
                 </div>
               </div>
         </div>

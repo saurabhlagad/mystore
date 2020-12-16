@@ -8,6 +8,7 @@ import { FeedbackService } from '../feedback.service';
   selector: 'app-car-feedback',
   templateUrl: './car-feedback.component.html',
   styleUrls: ['./car-feedback.component.css']
+  
 })
 export class CarFeedbackComponent implements OnInit {
   ID=0

@@ -13,7 +13,9 @@ export class ProfileEditComponent implements OnInit {
 phone=''
 image=undefined
 Address=''
+isImageUpdated=0
 constructor(private toastr:ToastrService,private service:ProfileService,private modal:NgbModal,private router:Router) { }
+
 
   ngOnInit(): void {
   }
@@ -22,7 +24,7 @@ constructor(private toastr:ToastrService,private service:ProfileService,private 
     this.image=event.target.files[0]
     // console.log('*************')
     // console.log(this.drivingLicence)
-    
+    this.isImageUpdated=1
   }
   onCancel(){
     this.modal.dismissAll('cancel')
@@ -49,11 +51,12 @@ constructor(private toastr:ToastrService,private service:ProfileService,private 
     }
     
     else{
-      this.service.editProfile(this.image,this.phone,this.Address)
+      console.log(`phone=${this.phone} & address=${this.Address} & image=${this.image}`)
+      this.service.editProfile(this.image,this.phone,this.Address,this.isImageUpdated)
                 .subscribe(response=>{
                   if(response['status']=='success')
                   {
-                   // this.toastr.success('Wait till admin confirm your request')
+                    this.toastr.success('Profile Edited Successfully')
                     this.modal.dismissAll('ok')
                     this.router.navigate(['/home/user/profile'])
 

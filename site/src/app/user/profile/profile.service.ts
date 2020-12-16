@@ -21,13 +21,32 @@ export class ProfileService {
    // console.log(`*************priceperHour=${pricePerHour}`)
    return this.http.get(this.url,httpOptions)
   }
-  editProfile(image :string,phone :string,Address:string){
+  editProfile(image :string,phone :string,Address:string,isUpadated:number){
     const httpOptions={
       headers:new HttpHeaders({
         token:sessionStorage['token']
       })
     }
-    const body={image:image,phone:phone,Address:Address}
-    return this.http.put(this.url,httpOptions)
+    //const body={image:image,phone:phone,Address:Address}
+    if(isUpadated==1){
+      const body=new FormData()
+    
+    body.append("phone",phone)
+    body.append("Address",Address)
+    body.append("image",image)
+    console.log(`phone=${phone} & address=${Address} & image=${image}`)
+    console.log(`body=${body}`)
+    return this.http.put(this.url,body,httpOptions)
+    }
+
+    else{
+      const body={
+        Address:Address,
+        phone:phone
+      }
+      return this.http.put(this.url+'/withoutimage',body,httpOptions)
+    }
+    
   }
+
 }

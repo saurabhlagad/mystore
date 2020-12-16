@@ -33,9 +33,9 @@ this.service.getProfile()
 })  
 }
 onEdit(user)
-
 {
   console.log(`phone=${user.phone}`)
+  console.log(`phone=${user.Address}`)
   const modalRef=this.modal.open(ProfileEditComponent,{size:'lg'})
     const component=modalRef.componentInstance as ProfileEditComponent
     component.phone=user.phone

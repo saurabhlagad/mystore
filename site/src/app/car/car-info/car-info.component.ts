@@ -75,6 +75,7 @@ export class CarInfoComponent implements OnInit {
 
   
   onBook(car){
+     
     if(sessionStorage['token'])
     {
       const modalRef=this.modal.open(CarBookComponent,{size:'lg'})

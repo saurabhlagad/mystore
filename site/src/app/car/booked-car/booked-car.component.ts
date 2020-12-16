@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { BookedcarService } from '../bookedcar.service';
 import { CarFeedbackComponent } from '../car-feedback/car-feedback.component';
+import { CarRentComponent } from '../car-rent/car-rent.component';
 
 
 @Component({
@@ -43,9 +44,13 @@ export class BookedCarComponent implements OnInit {
                   {
                     this.toastr.success('Booking Canceled')
                     this.loadBookedCars()
+                    this.router.navigate(['home/car/bookedcars'])
                   }
                   else{
+                    this.loadBookedCars()
                     this.toastr.error(response['error'])
+                    this.router.navigate(['home/car/bookedcars'])
+
                   }
                 })
   }
@@ -59,6 +64,23 @@ onFeedback(car){
     })
 }
 
+carRent(car){
+  const modalRef=this.modal.open(CarRentComponent,{size:'lg'})
+    const component=modalRef.componentInstance as CarRentComponent
+    component.id=car.carId
+    component.carName=car.carName
+    component.destination=car.destination
+    component.rideDuration=car.rideDuration
+    component.fromDate=car.fromDate
+    component.returnOn=car.returnOn
+    component.pricePerHour=car.pricePerHour
+    component.totalRent=car.totalRent
+    component.fromTime=car.fromTime
+    component.carName=car.carName
+    modalRef.result.finally(()=>{
+      this.loadBookedCars()
+    })
+}
 
 }
 
