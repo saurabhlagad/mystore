@@ -1,8 +1,8 @@
 
-<div class="modal-header">
+<!-- <div class="modal-header">
     <h3 class="title">Total Bill</h3>
 </div>
-    <!-- <img src="" alt=""> -->
+    <img src="" alt="">
 <div class="modal-body" id="contentToConvert" #content>
     <h3>Car Name={{carName}}</h3> <br>
     <h4>Destination= {{destination}} </h4> <br>
@@ -22,6 +22,113 @@
             <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
           </svg>
         Download</button>
-    <!-- <input type="button" value="Convert" (click)="convetToPDF()"/> -->
+    <input type="button" value="Convert" (click)="convetToPDF()"/>
     <button (click)="onOk()" class="btn btn-primary" style="float: right;">Ok</button>
+</div> -->
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
+    <script src="script.js"></script>
+</head>
+<!-- 
+<div class="modal-header">
+    <h3 class="title">Receipt</h3>
+</div> -->
+
+<div class="modal-body" >
+    <div id="contentToConvert" style="margin-bottom: 350px;">
+    <!-- <h5>Total Min= {{totalMin}}</h5> <br>
+    <h5>From Date= {{fromDate}}</h5> <br>
+      <h5>Return Date= {{returnDate}}</h5> <br>
+      <h5>Price/Hour= {{pricePerHour}}</h5> <br>
+      <h5>Total Bill= Total Min * Price/Min <br > <h5 style="margin-left:80px;"> = {{totalMin}} * {{pricePerMin}} </h5> </h5>
+      <h5>Total Bill= {{totalBill}}</h5>
+       -->
+       <body>
+       
+        <h1 style="margin-top: 10px;"></h1>
+        <div style="background-color: #000;color:#fff;margin-bottom: 80px;height: 30px;margin-top: 10px;text-align: center;">Receipt</div>
+        <!-- <address contenteditable>
+            <p>Jonathan Neal</p>
+            <p>101 E. Chapman Ave<br>Orange, CA 92866</p>
+            <p>(800) 555-1234</p>
+        </address> -->
+        <!-- <span><img alt="" src="http://www.jonathantneal.com/examples/invoice/logo.png"><input type="file" accept="image/*"></span> -->
+    
+    <article>
+        
+        <address contenteditable>
+            <p>Click & Go</p>
+        </address>
+        <table class="meta">
+            <tr>
+                <th><span contenteditable>Receipt No.</span></th>
+                <td><span contenteditable>{{id}}</span></td>
+            </tr>
+            <tr>
+                <th><span contenteditable>Date</span></th>
+                <td><span contenteditable>{{returnOn}}</span></td>
+            </tr>
+            <tr>
+                <th><span contenteditable>Amount </span></th>
+                <td><span>₹{{totalRent}}</span></td>
+            </tr>
+        </table>
+        <table class="inventory">
+            <thead>
+                <tr>
+                    <th><span contenteditable>Car Name</span></th>
+                    <th><span contenteditable>From Date</span></th>
+                    <th><span contenteditable>Return Date</span></th>
+                    <th><span contenteditable>Duration(hour)</span></th>
+                    <th><span contenteditable>Price/hour</span></th>
+                    <th><span contenteditable>Price</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span contenteditable>{{carName}}</span></td>
+                    <td><span contenteditable>{{fromDate}}</span></td>
+                    <td><span contenteditable>{{returnOn}}</span></td>
+                    <td><span contenteditable>{{rideDuration}}</span></td>
+                    <td><span contenteditable>₹{{pricePerHour}}</span></td>
+                 
+                    <td><span>₹{{totalRent}}</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <a class="add">+</a> -->
+        <table class="balance">
+            <tr>
+                <th><span contenteditable>Total</span></th>
+                <td><span>₹{{totalRent}}</span></td>
+            </tr>
+            <!-- <tr>
+                <th><span contenteditable>Amount Paid</span></th>
+                <td><span data-prefix>$</span><span contenteditable>0.00</span></td>
+            </tr>
+            <tr>
+                <th><span contenteditable>Balance Due</span></th>
+                <td><span data-prefix>$</span><span>600.00</span></td>
+            </tr> -->
+        </table>
+        
+    </article>
+    <button (click)="generatePDF()" type="button"class="btn btn-success" style="float: right;height: 30px;margin-left: 10px;width: 150px;">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+            <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+          </svg>
+        Download</button>
+        <button (click)="onOk()" class="btn btn-primary" style="float: right;height: 30px;margin-right: 10px;width: 100px;">Ok</button>
+</body>
 </div>
+</div>
+<!-- 
+<div class="modal-footer">
+    <button (click)="onReturned()" class="btn btn-primary" style="float: right;">Returned</button>
+    <button (click)="onCancle()" class="btn btn-danger" style="float: right;">Not Returned</button>
+</div> -->
