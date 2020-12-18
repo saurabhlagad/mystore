@@ -12,25 +12,25 @@
   </div> -->
   <div class="col-md-6">
       <div class="form-group">
-          <label for="">price/hour(Maximum)</label>
+          <label for="">Price/hour(Maximum)</label>
           <select (change)="loadCars()" [(ngModel)]="pricePerHour" class="form-control">
               <option value="0">All</option>
+              <option value="60">60</option>
+            <option value="70">70</option>
               <option value="80">80</option>
-            <option value="100">100</option>
-              <option value="130">130</option>
-              <option value="160">160</option>
-              <option value="200">200</option>
+              <option value="100">100</option>
+              <option value="120">120</option>
           </select>
       </div>          
   </div>
   <div class="col-md-6">
       <div class="form-group">
-          <label for="">no of seats(Maximum)</label>
+          <label for="">No of seats(Maximum)</label>
           <select (change)="loadCars()" [(ngModel)]="noOfSeats" class="form-control">
               <option value="0">All</option>
-            <option value="4">4</option>
-              <option value="6">6</option>
-              <option value="10">10</option>
+            <option value="5">5</option>
+              <option value="7">7</option>
+              
           </select>
       </div>          
   </div>
@@ -56,10 +56,10 @@
           <div class="col-md-8">
             <div class="card-body">
               <strong> <h5 class="card-title">{{car.carName}}</h5></strong>
-              <p class="card-text">{{car.description}}</p>
-              <p class="card-text"> <strong> maximum no of Seats</strong>:{{car.noOfSeats}}</p>
+              <p class="card-text"><strong> Description </strong>:{{car.description}}</p>
+              <p class="card-text"> <strong> Maximum no of Seats </strong>:{{car.noOfSeats}}</p>
               <p class="card-text"> <strong>Price/hour:</strong>₹ {{car.pricePerHour}}</p>
-              <p class="card-text"><strong>transmission:</strong>{{car.transmission}} <strong>fuel:</strong>{{car.fuel}}</p>        
+              <p class="card-text"><strong>Transmission:</strong>{{car.transmission}}<br> <strong>Fuel:</strong>{{car.fuel}}</p>        
             </div>
           </div>
         </div>

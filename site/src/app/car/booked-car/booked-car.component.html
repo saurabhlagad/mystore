@@ -7,7 +7,7 @@
 </head>
 <body style="margin-top: 100px;">
      <div class="container">
-        <div *ngIf="bookedcars.length==0" ><h3 class="title">you didn't Book any Car till now </h3></div>
+        <div *ngIf="bookedcars.length==0" ><h3 class="title">You didn't Book any Car till now </h3></div>
         <div *ngIf="bookedcars.length!=0">
             <button (click)="continueBooking()" class="btn btn-primary" style="margin-top:20px">Continue Booking</button>
 
@@ -37,7 +37,7 @@
                         <td>
                             <strong>Car Name: </strong> {{bookedcar.carName}}<br>
                             <strong>Plate No: </strong>{{bookedcar.plateNo}}<br>
-                            <strong>price/hour: </strong>₹{{bookedcar.pricePerHour}}
+                            <strong>Price/hour: </strong>₹{{bookedcar.pricePerHour}}
                         </td>
                         <td>{{bookedcar.fromDate}}</td>
                         <td>{{bookedcar.fromTime}}</td>
